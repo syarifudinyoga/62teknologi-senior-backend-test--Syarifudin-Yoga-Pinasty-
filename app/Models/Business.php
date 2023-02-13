@@ -11,10 +11,27 @@ class Business extends Model
     use HasFactory;
 
     protected $table = 'business';
-    protected $fillable = ['data'];
+    protected $fillable = ['location',
+                            'latitude',
+                            'longitude',
+                            'term',
+                            'radius',
+                            'categories',
+                            'locale',
+                            'price',
+                            'review_count',
+                            'rating',
+                            'open_now',
+                            'open_at',
+                            'attributes',
+                            'device_platform',
+                            'reservation_date',
+                            'reservation_time',
+                            'reservation_covers'];
 
     protected $casts = [
-        'data' => 'array',
+        'categories' => 'array',
+        'attributes' => 'array'
     ];
 
     protected $primaryKey = 'id';

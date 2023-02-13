@@ -15,7 +15,24 @@ class CreateBusinessTable extends Migration
     {
         Schema::create('business', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->text('data')->nullable();
+            //$table->text('data')->nullable();
+            $table->string('location');
+            $table->string('latitude');
+            $table->string('longitude');
+            $table->string('term');
+            $table->integer('radius');
+            $table->text('categories')->nullable();
+            $table->string('locale');
+            $table->integer('price');
+            $table->string('review_count');
+            $table->string('rating');
+            $table->boolean('open_now');
+            $table->integer('open_at');
+            $table->text('attributes');
+            $table->string('device_platform');
+            $table->string('reservation_date');
+            $table->string('reservation_time');
+            $table->integer('reservation_covers');
             $table->timestamps();
         });
     }
