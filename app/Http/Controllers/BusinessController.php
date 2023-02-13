@@ -363,6 +363,7 @@ class BusinessController extends Controller
             return response()->json(['error' => $validator->messages()], 200);
         }
 
+        //retrieve data by id and update
         $business = Business::find($id);
         $business->update([
             'location' => $request->location,
@@ -401,6 +402,24 @@ class BusinessController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $get_id = Business::where('id', '=', $id)->get();
+        $count = count($get_id);
+
+        if($count>0){
+            //retrieve data by id and delete
+            $business = Business::destroy($id);
+        
+            //data deleted, return success response
+            return response()->json([
+                'status' => 200,
+                'message' => 'Data deleted successfully'
+            ], 200);
+        } else {
+            //data deleted, return success response
+            return response()->json([
+                'status' => 200,
+                'message' => 'Data has been deleted before or nothing data can deleted'
+            ], 200);
+        }
     }
 }

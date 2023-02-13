@@ -22,3 +22,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('/business',[BusinessController::class, 'index']);
 Route::post('/business',[BusinessController::class, 'store']);
 Route::put('/business/{id}', [BusinessController::class, 'update']);
+Route::delete('/business/{id}', [BusinessController::class, 'destroy']);
